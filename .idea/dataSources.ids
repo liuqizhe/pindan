@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - mytest@localhost" uuid="b213cb75-9474-45d0-8dac-9006cac55aac">
+    <database-info product="MySQL" version="5.6.25" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="mixed" quoted-identifiers="upper"/>
+    <schema name="" catalog="mytest"/>
+    <table name="DEPT_TEST" schema="" catalog="mytest" type="TABLE">
+      <column name="deptno" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="dname" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="loc" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="deptno"/>
+    </table>
+    <table name="EMP_TEST" schema="" catalog="mytest" type="TABLE">
+      <column name="empno" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="ename" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="job" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="mgr" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="hiredate" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+      <column name="sal" sqlType="DOUBLE" precision="6" scale="2" nullable="true" jdbcType="8"/>
+      <column name="comm" sqlType="DOUBLE" precision="6" scale="2" nullable="true" jdbcType="8"/>
+      <column name="deptno" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="empno"/>
+    </table>
+    <table name="account_pz" schema="" catalog="mytest" type="TABLE">
+      <column name="total_money" sqlType="DOUBLE" precision="10" scale="2" nullable="true" jdbcType="8" remarks="6LSm5oi35oC76YeR6aKd"/>
+    </table>
+    <table name="class_ai" schema="" catalog="mytest" type="TABLE">
+      <column name="id" sqlType="SMALLINT UNSIGNED" precision="5" scale="0" nullable="false" jdbcType="5" remarks="54+t57qn57yW5Y+377yMMzAy6KGo56S65LiJ5bm05LqM54+t"/>
+      <column name="name" sqlType="CHAR" precision="16" scale="0" nullable="false" jdbcType="1" remarks="54+t57qn5ZCN56ew77yM5LiJ5bm057qn5LqM54+t"/>
+      <column name="headteacher" sqlType="CHAR" precision="8" scale="0" nullable="false" jdbcType="1" remarks="54+t5Li75Lu75aeT5ZCN"/>
+      <column name="studentcount" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" remarks="5a2m55Sf5pWw6YeP"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="class_news_ai" schema="" catalog="mytest" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" remarks="5YWs5ZGK57yW5Y+3" autoIncrement="true"/>
+      <column name="classid" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" remarks="6ICD6K+V54+t57qn"/>
+      <column name="content" sqlType="VARCHAR" precision="128" scale="0" nullable="false" jdbcType="12"/>
+      <column name="inserttime" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="index_class_news_ai" unique="false" columns="classid,inserttime"/>
+    </table>
+    <table name="consume_pz" schema="" catalog="mytest" type="TABLE">
+      <column name="cons_no" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="5raI6LS557yW5Y+3" autoIncrement="true"/>
+      <column name="restrant" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12" remarks="6aSQ5Y6F5ZCN56ew"/>
+      <column name="cons_price" sqlType="DOUBLE" precision="10" scale="2" nullable="false" jdbcType="8" remarks="5raI6LS56YeR6aKd"/>
+      <column name="cons_time" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
+      <primary-key name="PRIMARY" columns="cons_no"/>
+    </table>
+    <table name="cost_test" schema="" catalog="mytest" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="base_duration" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="base_cost" sqlType="DOUBLE" precision="6" scale="2" nullable="true" jdbcType="8"/>
+      <column name="unit_cost" sqlType="DOUBLE" precision="6" scale="2" nullable="true" jdbcType="8"/>
+      <column name="status" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="descr" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="creatime" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+      <column name="startime" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+      <column name="cost_type" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="exam_ai" schema="" catalog="mytest" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" remarks="6ICD6K+V57yW5Y+3" autoIncrement="true"/>
+      <column name="classid" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" remarks="6ICD6K+V54+t57qn"/>
+      <column name="course" sqlType="CHAR" precision="8" scale="0" nullable="false" jdbcType="1" remarks="6ICD6K+V56eR55uu"/>
+      <column name="examtime" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" remarks="6ICD6K+V5pe26Ze0" version="true"/>
+      <column name="fullmarks" sqlType="DECIMAL" precision="4" scale="1" nullable="false" jdbcType="3" remarks="5ruh5YiG"/>
+      <column name="average" sqlType="DECIMAL" precision="4" scale="1" nullable="true" jdbcType="3" remarks="5bmz5Z2H5YiG"/>
+      <column name="topmark" sqlType="DECIMAL" precision="4" scale="1" nullable="true" jdbcType="3" remarks="5pyA6auY5YiG"/>
+      <column name="lowestmark" sqlType="DECIMAL" precision="4" scale="1" nullable="true" jdbcType="3" remarks="5pyA5L2O5YiG"/>
+      <column name="remark" sqlType="VARCHAR" precision="32" scale="0" nullable="false" jdbcType="12" remarks="6ICD6K+V6K+05piO"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="index_classes_ai" unique="false" columns="classid,course"/>
+      <index name="index_exams_ai" unique="false" columns="id"/>
+    </table>
+    <table name="exam_mark_ai" schema="" catalog="mytest" type="TABLE">
+      <column name="classid" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" remarks="6ICD6K+V54+t57qn"/>
+      <column name="studentid" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" remarks="5a2m55Sf57yW5Y+3"/>
+      <column name="studentname" sqlType="CHAR" precision="8" scale="0" nullable="false" jdbcType="1" remarks="5a2m55Sf5aeT5ZCN"/>
+      <column name="examid" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" remarks="6ICD6K+V57yW5Y+3"/>
+      <column name="mark" sqlType="DECIMAL" precision="4" scale="1" nullable="false" jdbcType="3" remarks="5YiG5pWw"/>
+      <column name="examtime" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" remarks="6ICD6K+V5pe26Ze0" version="true"/>
+      <column name="rank" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6" remarks="54+t57qn5o6S5ZCN"/>
+      <column name="remark" sqlType="VARCHAR" precision="32" scale="0" nullable="true" jdbcType="12" remarks="5aSH5rOo"/>
+      <primary-key name="PRIMARY" columns="classid,studentid,examid"/>
+      <index name="index_exam_mark_ai" unique="false" columns="classid,studentid,studentname,examid,mark"/>
+    </table>
+    <table name="list_pz" schema="" catalog="mytest" type="TABLE">
+      <column name="list_no" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" remarks="6LSm5Y2V57yW5Y+3"/>
+      <column name="list_type" sqlType="ENUM" precision="2" scale="0" nullable="true" jdbcType="1" remarks="6LSm5Y2V57G75Z6L"/>
+      <column name="list_date" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
+      <column name="list_money" sqlType="DOUBLE" precision="10" scale="2" nullable="true" jdbcType="8" remarks="6YeR6aKd"/>
+      <column name="last_money" sqlType="DOUBLE" precision="10" scale="2" nullable="true" jdbcType="8" remarks="5L2Z6aKd"/>
+    </table>
+    <table name="message_ai" schema="" catalog="mytest" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="tousername" sqlType="CHAR" precision="32" scale="0" nullable="false" jdbcType="1"/>
+      <column name="fromusername" sqlType="CHAR" precision="32" scale="0" nullable="false" jdbcType="1"/>
+      <column name="msgtype" sqlType="ENUM" precision="8" scale="0" nullable="false" jdbcType="1"/>
+      <column name="createtime" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
+      <column name="msgId" sqlType="CHAR" precision="64" scale="0" nullable="false" jdbcType="1"/>
+      <column name="content" sqlType="VARCHAR" precision="128" scale="0" nullable="true" jdbcType="12"/>
+      <column name="picurl" sqlType="VARCHAR" precision="128" scale="0" nullable="true" jdbcType="12"/>
+      <column name="title" sqlType="VARCHAR" precision="128" scale="0" nullable="true" jdbcType="12"/>
+      <column name="description" sqlType="VARCHAR" precision="128" scale="0" nullable="true" jdbcType="12"/>
+      <column name="url" sqlType="VARCHAR" precision="128" scale="0" nullable="true" jdbcType="12"/>
+      <column name="locationx" sqlType="CHAR" precision="10" scale="0" nullable="true" jdbcType="1"/>
+      <column name="locationy" sqlType="CHAR" precision="10" scale="0" nullable="true" jdbcType="1"/>
+      <column name="scale" sqlType="CHAR" precision="8" scale="0" nullable="true" jdbcType="1"/>
+      <column name="label" sqlType="VARCHAR" precision="32" scale="0" nullable="true" jdbcType="12"/>
+      <column name="event" sqlType="VARCHAR" precision="16" scale="0" nullable="true" jdbcType="12"/>
+      <column name="eventkey" sqlType="VARCHAR" precision="16" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="index_user_ai" unique="false" columns="msgtype,tousername,fromusername,createtime"/>
+    </table>
+    <table name="ones_consume_pz" schema="" catalog="mytest" type="TABLE">
+      <column name="cons_no" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" remarks="5raI6LS557yW5Y+3"/>
+      <column name="restrant" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12" remarks="6aSQ5Y6F5ZCN56ew"/>
+      <column name="user_no" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" remarks="55So5oi357yW5Y+3"/>
+      <column name="user_name" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12" remarks="55So5oi35aeT5ZCN"/>
+      <column name="ones_price" sqlType="DOUBLE" precision="10" scale="2" nullable="true" jdbcType="8" remarks="5Liq5Lq65raI6LS56YeR6aKd"/>
+      <column name="cons_time" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
+    </table>
+    <table name="reply_ai" schema="" catalog="mytest" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="tousername" sqlType="CHAR" precision="32" scale="0" nullable="false" jdbcType="1"/>
+      <column name="fromusername" sqlType="CHAR" precision="32" scale="0" nullable="false" jdbcType="1"/>
+      <column name="msgtype" sqlType="ENUM" precision="5" scale="0" nullable="false" jdbcType="1"/>
+      <column name="createtime" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
+      <column name="content" sqlType="VARCHAR" precision="512" scale="0" nullable="false" jdbcType="12" remarks="5Zue5aSN5raI5oGv5YaF5a65"/>
+      <column name="musicurl" sqlType="VARCHAR" precision="128" scale="0" nullable="true" jdbcType="12"/>
+      <column name="hqmusicurl" sqlType="VARCHAR" precision="128" scale="0" nullable="true" jdbcType="12"/>
+      <column name="articlecount" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="index_user_ai" unique="false" columns="msgtype,tousername,fromusername,createtime"/>
+    </table>
+    <table name="reply_article_ai" schema="" catalog="mytest" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="replyid" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="title" sqlType="VARCHAR" precision="32" scale="0" nullable="false" jdbcType="12"/>
+      <column name="description" sqlType="VARCHAR" precision="64" scale="0" nullable="false" jdbcType="12"/>
+      <column name="picurl" sqlType="VARCHAR" precision="128" scale="0" nullable="false" jdbcType="12"/>
+      <column name="url" sqlType="VARCHAR" precision="128" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="index_replyid_ai" unique="false" columns="replyid"/>
+    </table>
+    <table name="student_ai" schema="" catalog="mytest" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" remarks="5a2m55Sf5a2m5Y+377yM6YCa5bi45Li654+t57qn57yW5Y+35Yqg5LiK5bqP5Y+377yM5aaCMzAyMQ=="/>
+      <column name="classid" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" remarks="5omA5bGe54+t57qn57yW5Y+3"/>
+      <column name="name" sqlType="CHAR" precision="8" scale="0" nullable="false" jdbcType="1" remarks="5a2m55Sf5aeT5ZCN"/>
+      <column name="remark" sqlType="VARCHAR" precision="32" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="index_classes_ai" unique="false" columns="classid,name"/>
+    </table>
+    <table name="student_message_ai" schema="" catalog="mytest" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" remarks="5raI5oGv57yW5Y+3" autoIncrement="true"/>
+      <column name="studentid" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" remarks="5a2m55Sf57yW5Y+3"/>
+      <column name="inserttime" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
+      <column name="content" sqlType="VARCHAR" precision="128" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="index_student_message_ai" unique="false" columns="studentid,inserttime"/>
+    </table>
+    <table name="topup_pz" schema="" catalog="mytest" type="TABLE">
+      <column name="topup_no" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="5YWF5YC857yW5Y+3" autoIncrement="true"/>
+      <column name="user_no" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" remarks="55So5oi35aeT5ZCN"/>
+      <column name="topup_money" sqlType="DOUBLE" precision="10" scale="2" nullable="true" jdbcType="8" remarks="5YWF5YC86YeR6aKd"/>
+      <column name="topup_time" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
+      <primary-key name="PRIMARY" columns="topup_no"/>
+    </table>
+    <table name="user_pz" schema="" catalog="mytest" type="TABLE">
+      <column name="user_no" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="55So5oi357yW5Y+3" autoIncrement="true"/>
+      <column name="user_name" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12" remarks="55So5oi35aeT5ZCN"/>
+      <column name="join_date" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+      <column name="pokey_money" sqlType="DOUBLE" precision="10" scale="2" nullable="true" jdbcType="8" remarks="6ZKx5YyF6YeR6aKd"/>
+      <column name="user_mail" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12" remarks="55So5oi36YKu566x"/>
+      <primary-key name="PRIMARY" columns="user_no"/>
+    </table>
+    <table name="user_test" schema="" catalog="mytest" type="TABLE">
+      <column name="username" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="password" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="pri" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="username"/>
+    </table>
+    <table name="user_test1" schema="" catalog="mytest" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="name" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="age" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="gender" sqlType="VARCHAR" precision="2" scale="0" nullable="true" jdbcType="12" def="J20n"/>
+    </table>
+  </data-source>
+</component>

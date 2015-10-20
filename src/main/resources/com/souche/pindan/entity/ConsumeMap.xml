@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+        "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.souche.pindan.dao.ConsumeMapperDao">
+    <select id="findAll" resultType="com.souche.pindan.entity.Consume">
+        SELECT * FROM consume_pz ORDER BY cons_no
+    </select>
+
+    <insert id="addConsume" parameterType="com.souche.pindan.entity.Consume">
+        INSERT INTO consume_pz (restrant, cons_price, cons_time) VALUES (#{restrant},#{consPrice},sysdate())
+    </insert>
+
+    <select id="findByTime" resultType="com.souche.pindan.entity.Consume" parameterType="String">
+        SELECT * FROM consume_pz WHERE date_format(cons_time,'%Y%m%d')=date_format(#{consTime},'%Y%m%d')
+    </select>
+
+    <select id="findLastId" resultType="int">
+        SELECT last_insert_id()
+    </select>
+</mapper>

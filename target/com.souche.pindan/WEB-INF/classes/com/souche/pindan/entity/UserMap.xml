@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+        "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.souche.pindan.dao.UserMapperDao">
+
+
+
+        <select id="findAll" resultType="com.souche.pindan.entity.User">
+                SELECT * FROM user_pz ORDER BY user_no
+        </select>
+
+        <select id="findById" parameterType="int" resultType="com.souche.pindan.entity.User">
+                SELECT user_no,user_name,join_date,pokey_money,user_mail FROM user_pz WHERE user_no=#{id}
+        </select>
+        
+        <insert id="addUser" parameterType="com.souche.pindan.entity.User">
+                INSERT INTO user_pz (user_name, join_date, pokey_money, user_mail) VALUES
+                (#{userName},sysdate(),0,#{userMail})
+        </insert>
+
+        <select id="findUserMoney" parameterType="int" resultType="double">
+                SELECT pokey_money FROM user_pz WHERE user_no=#{userNo}
+        </select>
+
+        <select id="findUserName" parameterType="int" resultType="String">
+                SELECT user_name FROM user_pz WHERE user_no=#{userNo}
+        </select>
+
+        <update id="updateUserMoney" parameterType="com.souche.pindan.entity.User">
+                UPDATE user_pz SET pokey_money=#{pokeyMoney} WHERE user_no=#{userNo}
+        </update>
+
+        <delete id="deleteUser" parameterType="int">
+                DELETE FROM user_pz WHERE user_no=#{userNo}
+        </delete>
+
+        <select id="findByPage5" parameterType="int" resultType="com.souche.pindan.entity.User">
+                SELECT * FROM user_pz WHERE user_no limit #{start},#{size}
+        </select>
+
+</mapper>

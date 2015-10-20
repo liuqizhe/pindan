@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+        "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.souche.pindan.dao.ListPZMapperDao">
+    <insert id="addTopupList" parameterType="com.souche.pindan.entity.ListPZ">
+        INSERT INTO list_pz (list_no, list_type,list_date, list_money, last_money) VALUES (#{listNo},'t',sysdate(),#{listMoney},#{lastMoney})
+    </insert>
+
+    <insert id="addDeleteList" parameterType="com.souche.pindan.entity.ListPZ">
+        INSERT INTO list_pz (list_no, list_type,list_date, list_money, last_money) VALUES (#{listNo},'d',syadate(),#{listMoney},#{lastMoney})
+    </insert>
+
+    <insert id="addConsumeList" parameterType="com.souche.pindan.entity.ListPZ">
+        INSERT INTO list_pz (list_no, list_type,list_date, list_money, last_money) VALUES (#{listNo},'c',sysdate(),#{listMoney},#{lastMoney})
+    </insert>
+
+    <select id="findAll" resultType="com.souche.pindan.entity.ListPZ">
+        SELECT * FROM list_pz ORDER BY list_no
+    </select>
+
+    <select id="findByType" parameterType="String" resultType="com.souche.pindan.entity.ListPZ">
+        SELECT * FROM list_pz WHERE list_type=#{listType}
+    </select>
+</mapper>

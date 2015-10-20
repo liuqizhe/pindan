@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+        "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.souche.pindan.dao.OnesConsumeMapperDao">
+    <select id="findUser" resultType="Integer" parameterType="int">
+        SELECT user_no FROM ones_consume_pz WHERE cons_no=#{consNo}
+    </select>
+
+    <insert id="addOnesConsume" parameterType="com.souche.pindan.entity.OnesConsume">
+        INSERT INTO ones_consume_pz (cons_no, restrant, user_no, user_name, ones_price, cons_time) VALUES
+        (#{consNo},#{restrant},#{userNo},#{userName},#{onesPrice},sysdate())
+    </insert>
+</mapper>
