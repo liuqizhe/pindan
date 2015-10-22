@@ -66,6 +66,10 @@ public class ConsumeOneController {
 //        }
 
             double onesPrice = consPrice / userNo.size();
+            if(consPrice > accountMapperDao.findTotalMoney()) {
+                model.addAttribute("error1","账户余额不足") ;
+                return "redirect:/consume/toConsume.from" ;
+            }
 
             //总账户扣款
             double accountMoney = accountMapperDao.findTotalMoney() - consPrice;
@@ -83,6 +87,10 @@ public class ConsumeOneController {
             listPZMapperDao.addConsumeList(listPZ);
 
             for (Integer u : userNo) {
+                if(consPrice > userMapperDao.findUserMoney(u)) {
+                    model.addAttribute("error1","用户钱包余额不足");
+                    return "redirect:/consume/toConsume.from" ;
+                }
                 double userMoney = userMapperDao.findUserMoney(u) - onesPrice;
 
                 //个人钱包扣款

@@ -33,7 +33,12 @@
     }
 
   </script>
-  -->
+-->
+  <script type="text/javascript">
+    function commit1() {
+      document.consInfo.submit();
+    }
+  </script>
   <link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css">
   <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
   <script src="http://apps.bdimg.com/libs/bootstrap/3.3.0/js/bootstrap.min.js"></script>
@@ -55,9 +60,33 @@
     <div class="nav-center"><h4>进行拼单！！</h4></div>
     <div class="nav-center">
 
-      <form:form name="Consume" action="commitConsume.from" commandName="consume" method="post">
-        <div>拼单餐厅：<form:input path="restrant" cssClass="readonly" readonly="true"/> </div>
-        <div>拼单金额：<form:input path="consPrice" cssClass="readonly" readonly="true"/> </div>
+      <form:form name="consInfo" class="form-inline" role="form" commandName="consume" action="consume.from" method="post">
+        <div class="form-group">拼单餐厅：</div>
+        <div class="input-group"><form:input cssClass="form-control" id="focusedInput" placeholder="请输入餐厅" path="restrant"/></div><br/>
+        <div class="form-group">拼单金额：</div>
+        <div class="input-group"><form:input cssClass="form-control" id="focusedInput" placeholder="请输入金额" path="consPrice"/></div><br/>
+        <div><span class="label label-warning">${error}</span></div>
+
+        <div class="nav-center"><label>参与拼单用户</label></div>
+        <div class="table-responsive"><table class="table table-striped table-bordered table-hover table-condensed">
+          <tr>
+            <td>用户编号：</td>
+            <td>用户姓名：</td>
+            <td>钱包余额：</td>
+            <td></td>
+          </tr>
+          <c:forEach items="${userGet}" var="u" >
+            <tr>
+              <td>${u.userNo}</td>
+              <td>${u.userName}</td>
+              <td>${u.pokeyMoney}</td>
+              <td></td>
+            </tr>
+          </c:forEach>
+        </table></div>
+
+        <input class="btn btn-primary" type="submit" value="确认消费"/>
+        <input class="btn btn-primary" type="button" value="取消" onclick="location.href='view.from';"/>
         <!--
         <div>
 
@@ -65,6 +94,12 @@
 
         </div>
         -->
+
+      </form:form>
+    </div>
+    <div class="nav-center">
+      <form name="consUser" class="form-inline" role="form" action="getUser.from" method="post">
+        <div class="nav-center"><label>选择拼单用户</label></div>
         <div class="table-responsive"><table class="table table-striped table-bordered table-hover table-condensed">
           <tr>
             <td>选择：</td>
@@ -82,10 +117,8 @@
           </c:forEach>
         </table></div>
         <div><span class="label label-warning">${error}</span></div>
-        <input class="btn btn-primary" type="button" value="上一步" onclick="history.go(-1);"/>
-        <input class="btn btn-primary" type="submit" value="确认消费"/>
-        <input class="btn btn-primary" type="button" value="取消" onclick="location.href='view.from';"/>
-      </form:form>
+        <input class="btn btn-primary" type="submit" value="确认选择" onclick="commit1()"/>
+      </form>
     </div>
 
   </div>

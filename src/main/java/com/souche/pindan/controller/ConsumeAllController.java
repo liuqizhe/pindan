@@ -25,8 +25,10 @@ public class ConsumeAllController {
     }
 
     @RequestMapping("/toConsume")
-    public String toConsume(@RequestParam(value = "error",required = false) String error,Model model) {
+    public String toConsume(@RequestParam(value = "error",required = false) String error,
+                            @RequestParam(value = "error1", required = false) String error1,Model model) {
         model.addAttribute("error",error) ;
+        model.addAttribute("error1",error1) ;
         return "consume_all" ;
     }
 

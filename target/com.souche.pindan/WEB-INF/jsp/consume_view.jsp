@@ -10,24 +10,37 @@
 <html>
 <head>
     <title>ConsumeView</title>
+  <link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css">
+  <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="http://apps.bdimg.com/libs/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+  <style type="text/css">
+    .nav-center{
+      margin:0 auto;		/* 居中 这个是必须的，，其它的属性非必须 */
+      width:650px;		/* 给个宽度 顶到浏览器的两边就看不出居中效果了 */
+      text-align:center; 	/* 文字等内容居中 */
+    }
+  </style>
 </head>
 <body>
-  <div></div>
-  <h2>拼单消费</h2>
-  <div id="index_navi">
-    <ul id="menu">
-      <li><a href="">主页</a> </li>
+<div class="container"><div class="jumbotron">
+  <h1>拼单</h1>
+  <p>一起来拼单！！！！</p>
+</div></div>
+  <div class="nav-center">
+    <ul class="nav nav-pills">
+      <li><a href="../index/index.from">主页</a> </li>
       <li><a href="../user/list.from">用户查询</a> </li>
-      <li><a href="../consume/view.from">拼单消费</a> </li>
+      <li class="active"><a href="../consume/view.from">拼单消费</a> </li>
       <li><a href="../consume/list.from">消费查询</a> </li>
       <li><a href="../topup/list.from">充值查询</a> </li>
       <li><a href="../listPZ/list.from">账单查询</a> </li>
       <li><a href="../account/show.from">账户金额查询</a> </li>
     </ul>
   </div>
-  <div>
-    <div><h4>进行拼单！！</h4></div>
-    <div><input type="button" value="去拼单" onclick="location.href='toConsume.from';"/></div>
+  <div class="nav-center"><h2>拼单消费</h2></div>
+  <div class="nav-center">
+    <div class="nav-center"><h4>进行拼单！！</h4></div>
+    <div class="nav-center"><input class="btn btn-primary" type="button" value="去拼单" onclick="location.href='toConsume.from';"/></div>
   </div>
 </body>
 </html>

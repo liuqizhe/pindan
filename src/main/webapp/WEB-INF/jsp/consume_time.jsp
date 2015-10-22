@@ -9,18 +9,27 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>ConsumeTime</title>
+  <link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css">
+  <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="http://apps.bdimg.com/libs/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+  <style type="text/css">
+    .align-center{
+      margin:0 auto;		/* 居中 这个是必须的，，其它的属性非必须 */
+      width:650px;		/* 给个宽度 顶到浏览器的两边就看不出居中效果了 */
+      text-align:center; 	/* 文字等内容居中 */
+    }
+  </style>
 </head>
 <body>
-  <div></div>
-  <h2>消费日期查询</h2>
-  <div id="index_navi">
+<div class="container"><div class="jumbotron">
+  <h1>拼单</h1>
+  <p>一起来拼单！！！！</p>
+  </div></div>
+  <div class="align-center"><h2>消费日期查询</h2></div>
+  <div class="align-center">
 
-  </div>
-  <div>
-
-      <div>
-      <table border="1px">
+      <div class="table-responsive">
+      <table class="table table-striped table-bordered table-hover table-condensed">
         <tr>
         <td>消费编号</td>
         <td>消费餐厅</td>
@@ -35,12 +44,12 @@
             <td>${c.restrant}</td>
             <td>${c.consPrice}</td>
             <td>${c.consTime}</td>
-            <td>${userNo}</td>
+            <td>${c.userNo}</td>
           </tr>
         </c:forEach>
       </table>
       </div>
-    <input type="button" value="返回" onclick="history.go(-1);"/>
+    <input class="btn btn-default" type="button" value="返回" onclick="history.go(-1);"/>
   </div>
 </body>
 </html>
