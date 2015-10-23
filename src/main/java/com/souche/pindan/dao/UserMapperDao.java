@@ -2,6 +2,7 @@ package com.souche.pindan.dao;
 
 import com.souche.pindan.annotation.MyBatisDao;
 import com.souche.pindan.entity.User;
+import com.souche.pindan.util.Page;
 
 import java.util.List;
 
@@ -18,5 +19,6 @@ public interface UserMapperDao {
     public void updateUserMoney(User user) ;
     public void updateUser(User user) ;
     public void deleteUser(int id) ;
-    public List<User> findByPage5(int start,int size) ;
+    public List<User> findByPage(Page page) ;
+    public int findRow() ;
 }

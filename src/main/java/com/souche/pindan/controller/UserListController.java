@@ -10,6 +10,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
+ * 用户查询控制类
  * Created by liuqizhe on 15/10/10.
  */
 @Controller
@@ -22,6 +23,11 @@ public class UserListController {
         this.dao = dao;
     }
 
+    /**
+     * 前往用户查询页面
+     * @param model
+     * @return
+     */
     @RequestMapping("/list")
     public String toUserList(Model model) {
         List<User> list = dao.findAll() ;

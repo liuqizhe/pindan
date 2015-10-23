@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.annotation.Resource;
 
 /**
+ * 用户删除控制类
  * Created by liuqizhe on 15/10/14.
  */
 @Controller
@@ -35,6 +36,11 @@ public class UserDeleteController {
         this.accountMapperDao = accountMapperDao;
     }
 
+    /**
+     * 删除用户，写入数据
+     * @param id
+     * @return
+     */
     @RequestMapping("/deleteUser")
     public String deleteUser(@RequestParam(value = "userNo",required = false) Integer id) {
         if(id != null) {

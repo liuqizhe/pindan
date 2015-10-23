@@ -11,6 +11,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
+ * 账单类型控制类
  * Created by liuqizhe on 15/10/14.
  */
 @Controller
@@ -23,6 +24,12 @@ public class ListPZTypeController {
         this.dao = dao;
     }
 
+    /**
+     * 账单类型控制类
+     * @param type
+     * @param model
+     * @return
+     */
     @RequestMapping("/toType")
     public String toListPZType(@RequestParam(value = "listType",required = false) String type,Model model) {
         if (type != "0") {

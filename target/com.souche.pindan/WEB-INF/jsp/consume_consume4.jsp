@@ -36,7 +36,18 @@
 -->
   <script type="text/javascript">
     function commit1() {
+      document.consInfo.action="/pindan/consume/getUser.from";
       document.consInfo.submit();
+    }
+
+    function changePage(page) {
+      document.consInfo.action="/pindan/consume/changePage.from?page="+page ;
+      document.consInfo.submit() ;
+    }
+
+    function commit2() {
+      document.consInfo.action="/pindan/consume/consume.from" ;
+      document.consInfo.submit() ;
     }
   </script>
   <link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css">
@@ -55,6 +66,17 @@
   <h1>拼单</h1>
   <p>一起来拼单！！！！</p>
 </div></div>
+<div class="nav-center">
+  <ul class="nav nav-pills">
+    <li><a href="../index/index.from">主页</a> </li>
+    <li><a href="../user/list.from">用户查询</a> </li>
+    <li class="active"><a href="../consume/view.from">拼单消费</a> </li>
+    <li><a href="../consume/list.from">消费查询</a> </li>
+    <li><a href="../topup/list.from">充值查询</a> </li>
+    <li><a href="../listPZ/list.from">账单查询</a> </li>
+    <li><a href="../account/show.from">账户金额查询</a> </li>
+  </ul>
+</div>
   <div class="nav-center"><h2>拼单消费</h2></div>
   <div>
     <div class="nav-center"><h4>进行拼单！！</h4></div>
@@ -67,38 +89,7 @@
         <div class="input-group"><form:input cssClass="form-control" id="focusedInput" placeholder="请输入金额" path="consPrice"/></div><br/>
         <div><span class="label label-warning">${error}</span></div>
 
-        <div class="nav-center"><label>参与拼单用户</label></div>
-        <div class="table-responsive"><table class="table table-striped table-bordered table-hover table-condensed">
-          <tr>
-            <td>用户编号：</td>
-            <td>用户姓名：</td>
-            <td>钱包余额：</td>
-            <td></td>
-          </tr>
-          <c:forEach items="${userGet}" var="u" >
-            <tr>
-              <td>${u.userNo}</td>
-              <td>${u.userName}</td>
-              <td>${u.pokeyMoney}</td>
-              <td></td>
-            </tr>
-          </c:forEach>
-        </table></div>
 
-        <input class="btn btn-primary" type="submit" value="确认消费"/>
-        <input class="btn btn-primary" type="button" value="取消" onclick="location.href='view.from';"/>
-        <!--
-        <div>
-
-          <input type="button" value="确认消费" onclick="commit1();"/>
-
-        </div>
-        -->
-
-      </form:form>
-    </div>
-    <div class="nav-center">
-      <form name="consUser" class="form-inline" role="form" action="getUser.from" method="post">
         <div class="nav-center"><label>选择拼单用户</label></div>
         <div class="table-responsive"><table class="table table-striped table-bordered table-hover table-condensed">
           <tr>
@@ -115,10 +106,66 @@
               <td>${u.pokeyMoney}</td>
             </tr>
           </c:forEach>
+
+          <div id="pages">
+            <c:choose>
+              <c:when test="${page.page>1}">
+                <a onclick="changePage(${page.page-1})">上一页</a>
+              </c:when>
+              <c:otherwise><a>上一页</a></c:otherwise>
+            </c:choose>
+
+            <c:forEach var="i" begin="1" end="${page.totalPage}">
+              <c:choose>
+                <c:when test="${i==page.page}">
+                  <a style="color: #f00">${i}</a>
+                </c:when>
+                <c:otherwise>
+                  <a onclick="changePage(${i})">${i}</a>
+                </c:otherwise>
+              </c:choose>
+            </c:forEach>
+
+            <c:choose>
+              <c:when test="${page.page<page.totalPage}">
+                <a onclick="changePage(${page.page+1})">下一页</a>
+              </c:when>
+              <c:otherwise><a>下一页</a></c:otherwise>
+            </c:choose>
+          </div>
         </table></div>
         <div><span class="label label-warning">${error}</span></div>
-        <input class="btn btn-primary" type="submit" value="确认选择" onclick="commit1()"/>
-      </form>
+        <input class="btn btn-primary" type="button" value="确认选择" onclick="commit1()"/>
+
+
+        <div class="nav-center"><label>参与拼单用户</label></div>
+        <div class="table-responsive"><table class="table table-striped table-bordered table-hover table-condensed">
+          <tr>
+            <td>用户编号：</td>
+            <td>用户姓名：</td>
+            <td>钱包余额：</td>
+            <td></td>
+          </tr>
+          <c:forEach items="${userGet}" var="u" >
+            <tr>
+              <td>${u.userNo}</td>
+              <td>${u.userName}</td>
+              <td>${u.pokeyMoney}</td>
+              <td><input type="hidden" name="UserGet" value="${u.userNo}"/> </td>
+            </tr>
+          </c:forEach>
+        </table></div>
+
+        <input class="btn btn-primary" type="button" value="确认消费" onclick="commit2()"/>
+        <input class="btn btn-primary" type="button" value="取消" onclick="location.href='view.from';"/>
+        <!--
+        <div>
+
+          <input type="button" value="确认消费" onclick="commit1();"/>
+
+        </div>
+        -->
+      </form:form>
     </div>
 
   </div>

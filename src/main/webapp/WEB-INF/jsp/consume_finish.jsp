@@ -25,6 +25,17 @@
   <h1>拼单</h1>
   <p>一起来拼单！！！！</p>
 </div></div>
+<div class="nav-center">
+  <ul class="nav nav-pills">
+    <li><a href="../index/index.from">主页</a> </li>
+    <li><a href="../user/list.from">用户查询</a> </li>
+    <li class="active"><a href="../consume/view.from">拼单消费</a> </li>
+    <li><a href="../consume/list.from">消费查询</a> </li>
+    <li><a href="../topup/list.from">充值查询</a> </li>
+    <li><a href="../listPZ/list.from">账单查询</a> </li>
+    <li><a href="../account/show.from">账户金额查询</a> </li>
+  </ul>
+</div>
 <div class="row">
   <div class="nav-center"><h2>消费成功</h2></div>
     <div class="nav-center"><h3>拼单消费成功！！</h3></div>

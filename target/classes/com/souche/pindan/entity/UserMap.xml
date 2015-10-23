@@ -34,8 +34,11 @@
                 DELETE FROM user_pz WHERE user_no=#{userNo}
         </delete>
 
-        <select id="findByPage5" parameterType="int" resultType="com.souche.pindan.entity.User">
-                SELECT * FROM user_pz WHERE user_no limit #{start},#{size}
+        <select id="findByPage" parameterType="com.souche.pindan.util.Page" resultType="com.souche.pindan.entity.User">
+                SELECT * FROM user_pz WHERE user_no limit #{start},#{pageSize}
         </select>
 
+        <select id="findRow" resultType="int">
+                SELECT count(*) FROM user_pz
+        </select>
 </mapper>

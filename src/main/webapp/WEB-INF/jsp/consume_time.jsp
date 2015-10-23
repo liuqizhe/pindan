@@ -44,7 +44,7 @@
             <td>${c.restrant}</td>
             <td>${c.consPrice}</td>
             <td>${c.consTime}</td>
-            <td>${c.userNo}</td>
+            <td>${c.user}</td>
           </tr>
         </c:forEach>
       </table>

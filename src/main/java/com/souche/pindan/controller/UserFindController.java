@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.annotation.Resource;
 
 /**
+ * 查找用户控制类
  * Created by liuqizhe on 15/10/12.
  */
 @Controller
@@ -22,7 +23,12 @@ public class UserFindController {
         this.dao = dao;
     }
 
-
+    /**
+     * 按用户编号查找用户
+     * @param id
+     * @param model
+     * @return
+     */
     @RequestMapping("/findUser")
     public String find(@RequestParam(value="userNo",required = false) Integer id,Model model) {
         if (id != null) {

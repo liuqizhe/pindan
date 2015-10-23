@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.annotation.Resource;
 
 /**
+ * 用户添加控制类
  * Created by liuqizhe on 15/10/10.
  */
 @Controller
@@ -23,12 +24,24 @@ public class UserAddController {
         this.dao = dao;
     }
 
+    /**
+     * 前往添加页面
+     * @param error
+     * @param model
+     * @return
+     */
     @RequestMapping("/toAdd")
     public String toUserAdd(@RequestParam(value = "error",required = false) String error,Model model) {
         model.addAttribute("error",error) ;
         return "user_add" ;
     }
 
+    /**
+     * 添加用户
+     * @param user
+     * @param model
+     * @return
+     */
     @RequestMapping("/addUser")
     public String add(User user,Model model) {
         if(user.getUserName() != "" && user.getUserMail() != "") {

@@ -11,6 +11,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
+ * 账单控制类
  * Created by liuqizhe on 15/10/13.
  */
 @Controller
@@ -23,6 +24,11 @@ public class ListPZListController {
         this.dao = dao;
     }
 
+    /**
+     * 前往账单页面
+     * @param model
+     * @return
+     */
     @RequestMapping("/list")
     public String toListPZList(Model model) {
         List<ListPZ> lpz = dao.findAll() ;

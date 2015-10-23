@@ -15,6 +15,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
+ * 消费控制类2（已停用）
  * Created by liuqizhe on 15/10/14.
  */
 @Controller
@@ -51,6 +52,14 @@ public class ConsumeOneController {
         this.listPZMapperDao = listPZMapperDao;
     }
 
+    /**
+     * 消费提交，写入数据
+     * @param restrant
+     * @param consPrice
+     * @param userNo
+     * @param model
+     * @return
+     */
     @Transactional(rollbackFor = Exception.class)
     @RequestMapping("/commitConsume")
     public String commitConsume(@RequestParam(value = "restrant",required = false) String restrant,

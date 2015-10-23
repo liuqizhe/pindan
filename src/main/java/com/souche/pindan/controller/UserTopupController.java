@@ -22,6 +22,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
+ * 用户充值控制类
  * Created by liuqizhe on 15/10/13.
  */
 @Controller

@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * 消费查询控制类
  * Created by liuqizhe on 15/10/14.
  */
 @Controller
@@ -33,6 +34,11 @@ public class ConsumeListController {
         this.onesConsumeMapperDao = onesConsumeMapperDao;
     }
 
+    /**
+     * 前往消费查询页面
+     * @param model
+     * @return
+     */
     @RequestMapping("/list")
     public String listConsume(Model model) {
         List<Consume> list = consumeMapperDaodao.findAll() ;
@@ -50,19 +56,25 @@ public class ConsumeListController {
         return "consume_list" ;
     }
 
+    /**
+     * 按日期查询消费
+     * @param consTime
+     * @param model
+     * @return
+     */
     @RequestMapping("toTime")
     public String toTime(@RequestParam(value = "consTime",required = false) String consTime, Model model) {
         List<Consume> list = consumeMapperDaodao.findByTime(consTime) ;
-        List<String> listU = new ArrayList<String>() ;
+
         for (Consume c : list) {
             int consNo = c.getConsNo() ;
             List<Integer> userNo = onesConsumeMapperDao.findUser(consNo) ;
             String u = userNo.toString() ;
-            listU.add(u) ;
+            c.setUser(u);
         }
 
         model.addAttribute("consumeTime",list) ;
-        model.addAttribute("userNo",listU) ;
+
         return "consume_time" ;
     }
 }
