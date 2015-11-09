@@ -1,5 +1,6 @@
 package com.souche.pindan.controller;
 
+import com.alibaba.fastjson.JSONArray;
 import com.souche.pindan.dao.ConsumeMapperDao;
 import com.souche.pindan.dao.OnesConsumeMapperDao;
 import com.souche.pindan.entity.Consume;
@@ -7,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
@@ -63,6 +65,7 @@ public class ConsumeListController {
      * @return
      */
     @RequestMapping("toTime")
+    @ResponseBody
     public String toTime(@RequestParam(value = "consTime",required = false) String consTime, Model model) {
         List<Consume> list = consumeMapperDaodao.findByTime(consTime) ;
 
@@ -73,8 +76,12 @@ public class ConsumeListController {
             c.setUser(u);
         }
 
-        model.addAttribute("consumeTime",list) ;
+        String str = JSONArray.toJSONString(list,true) ;
+        return str ;
 
-        return "consume_time" ;
+
+//        model.addAttribute("consumeTime",list) ;
+
+//        return "consume_time" ;
     }
 }

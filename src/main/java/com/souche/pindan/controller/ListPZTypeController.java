@@ -1,11 +1,13 @@
 package com.souche.pindan.controller;
 
+import com.alibaba.fastjson.JSONArray;
 import com.souche.pindan.dao.ListPZMapperDao;
 import com.souche.pindan.entity.ListPZ;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -31,14 +33,18 @@ public class ListPZTypeController {
      * @return
      */
     @RequestMapping("/toType")
+    @ResponseBody
     public String toListPZType(@RequestParam(value = "listType",required = false) String type,Model model) {
-        if (type != "0") {
-            List<ListPZ> lpz = dao.findByType(type);
-            model.addAttribute("listPZ", lpz);
-            return "listPZ_type";
-        } else {
-            model.addAttribute("error","请选择类型查询") ;
-            return "redirect:/listPZ/list.from" ;
-        }
+//        if (type != "0") {
+//            List<ListPZ> lpz = dao.findByType(type);
+//            model.addAttribute("listPZ", lpz);
+//            return "listPZ_type";
+//        } else {
+//            model.addAttribute("error","请选择类型查询") ;
+//            return "redirect:/listPZ/list.from" ;
+//        }
+        List<ListPZ> lp = dao.findByType(type) ;
+        String str = JSONArray.toJSONString(lp,true) ;
+        return str ;
     }
 }

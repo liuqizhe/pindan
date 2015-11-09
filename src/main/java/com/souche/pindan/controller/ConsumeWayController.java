@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 消费控制类总
+ * 消费控制类总（已停用）
  * Created by liuqizhe on 15/10/21.
  */
 @Controller
@@ -61,30 +61,30 @@ public class ConsumeWayController {
      * @param model
      * @return
      */
-    @RequestMapping("/toConsume")
-    public String toConsume(@RequestParam(value = "error",required = false) String error,Page page, Model model) {
-//        List<User> list = userMapperDao.findAll() ;
-//        model.addAttribute("userGet",userGet) ;
-//        for(User u : userGet) {
-//            System.out.println(u);
+//    @RequestMapping("/toConsume")
+//    public String toConsume(@RequestParam(value = "error",required = false) String error,Page page, Model model) {
+////        List<User> list = userMapperDao.findAll() ;
+////        model.addAttribute("userGet",userGet) ;
+////        for(User u : userGet) {
+////            System.out.println(u);
+////        }
+//        List<User> u = userMapperDao.findByPage(page) ;
+////        System.out.println(u);
+//        //计算总页数
+//        int totalRows = userMapperDao.findRow() ;
+//        int totalPage = 1 ;
+//        if(totalRows%page.getPageSize() == 0) {
+//            totalPage = totalRows/page.getPageSize() ;
+//        } else {
+//            totalPage = totalRows/page.getPageSize()+1 ;
 //        }
-        List<User> u = userMapperDao.findByPage(page) ;
-//        System.out.println(u);
-        //计算总页数
-        int totalRows = userMapperDao.findRow() ;
-        int totalPage = 1 ;
-        if(totalRows%page.getPageSize() == 0) {
-            totalPage = totalRows/page.getPageSize() ;
-        } else {
-            totalPage = totalRows/page.getPageSize()+1 ;
-        }
-        //将总页数放入page对象
-        page.setTotalPage(totalPage);
-        model.addAttribute("page",page) ;
-        model.addAttribute("user",u) ;
-        model.addAttribute("error",error) ;
-        return "consume_consume3" ;
-    }
+//        //将总页数放入page对象
+//        page.setTotalPage(totalPage);
+//        model.addAttribute("page",page) ;
+//        model.addAttribute("user",u) ;
+//        model.addAttribute("error",error) ;
+//        return "consume_consume3" ;
+//    }
 
     /**
      * 提交消费，写入数据

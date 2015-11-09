@@ -39,4 +39,13 @@ public class Page {
     public void setTotalPage(Integer totalPage) {
         this.totalPage = totalPage;
     }
+
+    @Override
+    public String toString() {
+        return "Page{" +
+                "page=" + page +
+                ", pageSize=" + pageSize +
+                ", totalPage=" + totalPage +
+                '}';
+    }
 }

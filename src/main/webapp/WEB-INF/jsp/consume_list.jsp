@@ -12,6 +12,7 @@
     <title>ConsumeList</title><link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css">
   <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
   <script src="http://apps.bdimg.com/libs/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="/pindan/js/jquery-1.11.1.js"></script>
   <style type="text/css">
     .align-center{
       margin:0 auto;		/* 居中 这个是必须的，，其它的属性非必须 */
@@ -19,6 +20,34 @@
       text-align:center; 	/* 文字等内容居中 */
     }
   </style>
+  <script type="text/javascript">
+    $(function() {
+      $('#btn').click(function() {
+        var str = $('#focusedInput').val() ;
+        if(str.match(/^((?:19|20)\d\d)-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$/)) {
+          $('#return').empty() ;
+          $.ajax({
+            url:"toTime.from?consTime="+str ,
+            type:"post" ,
+            datatype:"json",
+            success:function(list) {
+              $('#return').empty() ;
+              $('#consList').empty() ;
+              var obj = JSON.parse(list) ;
+              for(i=0;i<obj.length;i++) {
+                var c = obj[i] ;
+                $('#consList').append('<tr><td>'+c.consNo+'</td><td>'+c.restrant+'</td><td>'+ c.consPrice+'</td><td>'+
+                        c.consTime+'</td><td>'+ c.user+'</td></tr>') ;
+              }
+            }
+          }) ;
+        } else {
+          $('#return').empty() ;
+          $('#return').append("请输入正确的日期") ;
+        }
+      }) ;
+    }) ;
+  </script>
 </head>
 <body>
 <div class="container"><div class="jumbotron">
@@ -38,12 +67,15 @@
   </div>
   <div class="align-center"><h2>消费查询</h2></div>
   <div class="align-center">
-    <form action="toTime.from" method="post" class="form-inline" role="form">
+    <form action="" method="" class="form-inline" role="form">
       <div class="form-group"><label>按日期查询消费(YYYY-MM-DD)：</label></div>
       <div class="input-group"><input class="form-control" id="focusedInput" placeholder="YYYY-MM-DD" type="date" name="consTime"/>
-        <span class="input-group-btn"><input class="btn btn-default" type="submit" value="查询"/></span></div>
+        <span class="input-group-btn"><input class="btn btn-default" type="button" value="查询" id="btn"/></span>
+        <span class="label label-warning" id="return"></span>
+      </div>
       <div class="table-responsive">
       <table class="table table-striped table-bordered table-hover table-condesed">
+        <thead>
         <tr>
         <td>消费编号</td>
         <td>消费餐厅</td>
@@ -52,6 +84,8 @@
           <td>参与用户</td>
         <td></td>
         </tr>
+        </thead>
+        <tbody id="consList">
         <c:forEach items="${consumeList}" var="c">
           <tr>
             <td>${c.consNo}</td>
@@ -61,6 +95,7 @@
             <td>${c.user}</td>
           </tr>
         </c:forEach>
+        </tbody>
       </table>
       </div>
     </form>

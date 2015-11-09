@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css">
   <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
   <script src="http://apps.bdimg.com/libs/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="/pindan/js/jquery-1.11.1.js"></script>
   <style type="text/css">
     .nav-center{
       margin:0 auto;		/* 居中 这个是必须的，，其它的属性非必须 */
@@ -20,6 +21,34 @@
       text-align:center; 	/* 文字等内容居中 */
     }
   </style>
+  <script type="text/javascript">
+    $(function() {
+      $('#btn').click(function() {
+        var listType = $('#listType').val() ;
+        if(listType != 0) {
+          $('#return').empty() ;
+          $.ajax({
+            url:"toType.from?listType="+listType ,
+            type:"post" ,
+            datatype:"json",
+            success:function(list) {
+              $('#return').empty() ;
+              $('#listPZ').empty() ;
+              var obj = JSON.parse(list) ;
+              for(i=0;i<obj.length;i++) {
+                var l = obj[i] ;
+                $('#listPZ').append('<tr><td>'+ l.listNo+'</td><td>'+ l.listType+'</td><td>'+ l.listDate+'</td><td>'+
+                        l.listMoney+'</td><td>'+ l.lastMoney+'</td></tr>') ;
+              }
+            }
+          }) ;
+        } else {
+          $('#return').empty() ;
+          $('#return').append("请选择账单类型") ;
+        }
+      }) ;
+    }) ;
+  </script>
 </head>
 <body>
 <div class="container"><div class="jumbotron">
@@ -41,16 +70,18 @@
   <div class="nav-center">
     <form action="toType.from" method="post" class="form-inline" role="form">
       <div>按类型查询账单：
-          <select id="listPZ_type" name="listType" class="form-control">
+          <select id="listType" name="listType" class="form-control">
             <option value="0">请选择</option>
             <option value="t">充值</option>
             <option value="c">消费</option>
             <option value="d">删除人员</option>
           </select>
-         <input class="btn btn-primary" type="submit" value="查询"/>
+         <input class="btn btn-primary" type="button" value="查询" id="btn"/>
+        <span class="label label-warning" id="return"></span>
       </div>
       <div class="table-responsive">
       <table class="table table-striped table-bordered table-hover table-condensed">
+        <thead>
         <tr>
         <td>账单编号</td>
         <td>账单类型</td>
@@ -59,6 +90,8 @@
         <td>账户余额</td>
         <td></td>
         </tr>
+        </thead>
+        <tbody id="listPZ">
         <c:forEach items="${listPZ}" var="l">
           <tr>
             <td>${l.listNo}</td>
@@ -77,6 +110,7 @@
             <td>${l.lastMoney}</td>
           </tr>
         </c:forEach>
+        </tbody>
       </table>
       </div>
     </form>
